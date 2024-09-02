@@ -3,6 +3,7 @@
 package lesson1.task1
 
 import kotlin.math.*
+import kotlin.reflect.jvm.internal.ReflectProperties.Val
 
 // Урок 1: простые функции
 // Максимальное количество баллов = 5
@@ -66,7 +67,8 @@ fun main() {
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
 fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
-    return hours
+    return hours * 60 * 60 + minutes * 60 + seconds
+
 }
 
 /**
@@ -76,7 +78,12 @@ fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
  * Определить длину того же отрезка в метрах (в данном случае 18.98).
  * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
  */
-fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
+fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double {
+    val allVeshoks = sagenes * 48 + arshins * 16 + vershoks
+    val sm = allVeshoks * 4.445
+
+    return sm / 100
+}
 
 /**
  * Тривиальная (1 балл)
@@ -84,7 +91,9 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    return TODO()
+}
 
 /**
  * Тривиальная (1 балл)
